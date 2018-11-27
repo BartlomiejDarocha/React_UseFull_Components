@@ -1,0 +1,84 @@
+.slider-wrapper{
+    position: relative;
+    border: 1px solid black;
+    height: 400px;
+        .slider-content{
+            // overflow-x: hidden;
+            display: flex;
+            height: 400px;
+            .banner{
+                border: 3px solid green;
+                flex: 1;
+                height: 100%;
+                max-width: 1650px;
+                min-width: 1650px;
+                background-color: blue;
+            }
+        }
+        .slider-stateContent{
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            height: 400px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            .slider-middleList{
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+    
+                    ul{
+                        z-index: 1;
+                        height: 10%;
+                        width:15%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid green;
+                        list-style: none;
+                        
+                        li{
+                            border: 1px solid black;
+                            text-align: center;
+                            line-height: 35px;
+                            margin: auto;
+                            width: 10%;
+                            height: 90%;
+                        
+                        }
+                    }
+            }
+            .slider-leftArrow,.slider-RightArrow{
+                z-index: 1;
+                margin: 0;
+                height: 100%;
+                width: 4%;
+                border: 1px solid red;
+                font-size: 20px;
+            }
+            .slider-leftArrow{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span{
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+            .slider-RightArrow{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span{
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+}
+
+
