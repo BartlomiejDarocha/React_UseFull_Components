@@ -3,7 +3,7 @@ const data = {
         {
             "id": "b0",
             "index": 0,
-            "color": "red",
+            "color": "pink",
         },
         {
             "id": "b1",
@@ -18,7 +18,7 @@ const data = {
         {
             "id": "b3",
             "index": 3,
-            "color": "black",
+            "color": "violet",
         },
         {
             "id": "b4",
@@ -26,10 +26,10 @@ const data = {
             "color": "yellow",
         },
         {
-            "id": "b5",
+            "id": "b6",
             "index": 5,
             "color": "orange",
-        }
+        },
     ]
 }
 export default data;
