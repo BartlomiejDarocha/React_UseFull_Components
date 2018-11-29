@@ -3,7 +3,7 @@ const data = {
         {
             "id": "b0",
             "index": 0,
-            "des":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquid itaque hic, ratione quasi sunt.",
+            "des":"Dupa DUpa Duap dupasd Dupa DUpa Duap dupasd Dupa DUpa Duap dupasd Dupa DUpa Duap dupasd",
             "color": "pink",
         },
         {
