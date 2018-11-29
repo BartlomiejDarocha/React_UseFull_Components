@@ -6,40 +6,74 @@
             // overflow-x: hidden;
             display: flex;
             height: 400px;
-            .banner1{
+            position: absolute;
+            transition: transform 750ms cubic-bezier(0.25, 0.25, 0.25, 0.25);
+            .banner{
                 border: 3px solid green;
                 height: 100%;
                 max-width: 1650px;
                 min-width: 1650px;
                 background-color: blue;
             }
-            .banner2{
+            .banner0{
+                border: 3px solid green;
+                height: 100%;
+                max-width: 1650px;
+                min-width: 1650px;
+                background-color: blue;
+                h1{
+                    color: red
+                }
+            }
+            .banner1{
                 border: 3px solid green;
                 height: 100%;
                 max-width: 1650px;
                 min-width: 1650px;
                 background-color: red;
+                h1{
+                    color: green
+                }
+            }
+            .banner2{
+                border: 3px solid green;
+                height: 100%;
+                max-width: 1650px;
+                min-width: 1650px;
+                background-color: green;
+                h1{
+                    color:blue;
+                }
             }
             .banner3{
                 border: 3px solid green;
                 height: 100%;
                 max-width: 1650px;
                 min-width: 1650px;
-                background-color: green;
+                background-color: orange;
+                h1{
+                    color: red
+                }
             }
             .banner4{
                 border: 3px solid green;
                 height: 100%;
                 max-width: 1650px;
                 min-width: 1650px;
-                background-color: orange;
+                background-color: violet;
+                h1{
+                    color: red
+                }
             }
             .banner5{
                 border: 3px solid green;
                 height: 100%;
                 max-width: 1650px;
                 min-width: 1650px;
-                background-color: violet;
+                background-color: blue;
+                h1{
+                    color: red
+                }
             }
             .banner6{
                 border: 3px solid green;
@@ -47,6 +81,9 @@
                 max-width: 1650px;
                 min-width: 1650px;
                 background-color: blue;
+                h1{
+                    color: red
+                }
             }
             .banner7{
                 border: 3px solid green;
@@ -54,6 +91,9 @@
                 max-width: 1650px;
                 min-width: 1650px;
                 background-color: blue;
+                h1{
+                    color: red
+                }
             }
             .banner8{
                 border: 3px solid green;
@@ -61,6 +101,9 @@
                 max-width: 1650px;
                 min-width: 1650px;
                 background-color: blue;
+                h1{
+                    color: red
+                }
             }
             .banner9{
                 border: 3px solid green;
@@ -68,13 +111,9 @@
                 max-width: 1650px;
                 min-width: 1650px;
                 background-color: blue;
-            }
-            .banner10{
-                border: 3px solid green;
-                height: 100%;
-                max-width: 1650px;
-                min-width: 1650px;
-                background-color: blue;
+                h1{
+                    color: red
+                }
             }
         }
         .slider-stateContent{
