@@ -1,0 +1,200 @@
+
+.slider-wrapper{
+    position: relative;
+    height: 400px;
+        .slider-content{
+            height: 400px;
+            position: relative; 
+      
+            .banner0{
+                display: none;  
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+  
+                h1{
+                    color: red
+                }
+            }
+            .banner1{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+         
+                h1{
+                    color: green
+                }
+            }
+            .banner2{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+           
+                h1{
+                    color:blue;
+                }
+            }
+            .banner3{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+         
+                h1{
+                    color: red
+                }
+            }
+            .banner4{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+        
+                h1{
+                    color: red
+                }
+            }
+            .banner5{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+          
+                h1{
+                    color: red
+                }
+            }
+            .banner6{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+          
+                h1{
+                    color: red
+                }
+            }
+            .banner7{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+      
+                h1{
+                    color: red
+                }
+            }
+            .banner8{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+ 
+                h1{
+                    color: red
+                }
+            }
+            .banner9{
+                display: none;
+                position: absolute;
+                height: 100%;
+                max-width: 100vw;
+                min-width: 100vw;
+     
+                h1{
+                    color: red
+                }
+            }
+        }
+        .slider-stateContent{
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            height: 400px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            .slider-middleList{
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                    ul{
+                        z-index: 1;
+                        height: 10%;
+                        width:15%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        list-style: none;                 
+                        li{
+                            cursor: pointer;
+                            text-align: center;
+                            line-height: 35px;
+                            margin: auto;
+                            width: 10%;
+                            height: 90%;
+                        }
+                    }
+            }
+            .slider-leftArrow,.slider-RightArrow{
+                z-index: 1;
+                margin: 0;
+                height: 100%;
+                width: 4%;
+                font-size: 40px;
+                font-weight: 900;
+            }
+            
+            .slider-leftArrow{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                span{
+                    margin: 0;
+                    height: 50px;
+                    width: 40px;
+                    padding-top: calc(50% - 40px);
+                    color: #FFFF;
+                    cursor: pointer;
+                    transition: background-color 0.7s;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+                span:hover{
+                    background-color: rgba(0, 0, 0, 0.678);
+                }
+            }
+            .slider-RightArrow{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span{
+                    color: red;
+                    cursor: pointer;
+                }
+            }
+        }
+        
+}
+.fade{
+    animation-name: fade;
+    animation-duration: 2.5s;
+}
+@keyframes fade {
+    from {opacity: 0.2} 
+    to {opacity: 1}
+  }
+
