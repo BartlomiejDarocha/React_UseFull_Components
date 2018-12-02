@@ -180,10 +180,21 @@
             .slider-RightArrow{
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-end;
                 span{
-                    color: red;
+                    margin: 0;
+                    height: 50px;
+                    width: 40px;
+                    padding-top: calc(50% - 40px);
+                    padding-left: 15px;
+                    color: #FFFF;
                     cursor: pointer;
+                    transition: background-color 0.7s;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;;
+                }
+                span:hover{
+                    background-color: rgba(0, 0, 0, 0.678);
                 }
             }
         }
@@ -193,8 +204,9 @@
     animation-name: fade;
     animation-duration: 2.5s;
 }
+
 @keyframes fade {
     from {opacity: 0.2} 
     to {opacity: 1}
-  }
+}
 

@@ -61,7 +61,7 @@ class FadeSlider extends React .Component{
         const banners = newBanners.map(banner=>{
             return <div key={banner.id} style={{
                 'backgroundColor':`${banner.color}`,'display':`${this.state.banCurrent.index ===banner.index? 'block':'none'}`}} 
-                className ={`banner${banner.index} fade` }>
+                className ={`banner${banner.index} fade` }> 
                     <img src=""></img>
                     <h1>BANNER{banner.index}</h1>
                     <p>{banner.des}</p>
@@ -84,7 +84,7 @@ class FadeSlider extends React .Component{
                         </ul>
                     </div>
                     <div className='slider-RightArrow'>
-                        <span onClick={this.nextSlide}>Right</span>
+                        <span onClick={this.nextSlide}>&#62;</span>
                     </div>
                 </div>
             </div>
