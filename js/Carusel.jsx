@@ -8,7 +8,9 @@ class Carusel extends React .Component{
         super(props);
         this.state={
             cCount:0,
-            Testprops:[1,2,3,4],
+            Testprops:['a','b','c','d'],
+            fade: false,
+            blockButton: null,
         }
     }
     minusCounter = () =>{
@@ -34,16 +36,48 @@ class Carusel extends React .Component{
         }
         
     }
-    setOn=(e)=>{
-        console.log("test");
-        let tempVal = e.target.dataset.id;
+    styleSwitcher = ()=>{
         this.setState({
+            fade: !this.state.fade,
+        },()=>{
+            console.log(this.state.fade);
+        })
+    }
+    setOn=(e)=>{
+        let tempVal = e.target.dataset.id;
+        tempVal =Number(tempVal);
+       
+        this.setState({
+            fade: true,
             cCount: tempVal,
         },()=>{
             console.log(this.state.cCount);
+            console.log(this.state.blockButton);
         })
+
+        this.
+
+
+        // this.setState({fade: true,})
     }
     render(){
+        const newTable = this.state.Testprops;
+        let caruselContent;
+        if(this.state.fade){
+            caruselContent= newTable.map((item, index)=>{
+                return<li 
+                    style={{
+                        'display':this.state.cCount===index? 'block' : 'none'}} 
+                    className={`.carusel_item_fade fade`}
+                    >{item}</li>
+            })
+            console.log('teste2222');
+        }else{
+            caruselContent = newTable.map((item, index)=>{
+                return <li className={`carusel_item ${this.state.cCount ===index? 'active':'' || index === newTable.length-1? this.state.cCount===0? 'disactive': ''  :  this.state.cCount===index+1? 'disactive':''}`}>
+                {item}</li>
+            });
+        }
         return (
             <div>
                 <button onClick={this.minusCounter}>Left</button>
@@ -52,13 +86,17 @@ class Carusel extends React .Component{
                 <button data-id ='1' onClick ={this.setOn}>1</button>
                 <button data-id ='2' onClick ={this.setOn}>2</button>
                 <button data-id ='3' onClick ={this.setOn}>3</button>
+                <button onClick = {this.styleSwitcher}>TOGGLE</button>
                 <div className="carusel_wrapper">
-                    <ul className="listbox">
+                    {/* <ul className="listbox">
                         <li className ={`${this.state.cCount === 0? 'active':'' || this.state.cCount===1? 'disactive': ''} carusel_item`} style={{'backgroundColor':'red'}}></li>
                         <li className ={`${this.state.cCount === 1? 'active':'' || this.state.cCount===2? 'disactive': ''} carusel_item`} style={{'backgroundColor':'blue'}}></li>
                         <li className ={`${this.state.cCount === 2? 'active':'' || this.state.cCount===3? 'disactive': ''} carusel_item`} style={{'backgroundColor':'green'}}></li>
                         <li className ={`${this.state.cCount === 3? 'active':'' || this.state.cCount===0? 'disactive': ''} carusel_item`} style={{'backgroundColor':'orange'}}></li>
-                    </ul>   
+                    </ul>  */}
+                    <ul className='listbox'>
+                        {caruselContent}
+                    </ul>  
                 </div>
             </div>
         )
