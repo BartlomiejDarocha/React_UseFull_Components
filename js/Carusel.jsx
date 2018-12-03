@@ -34,31 +34,24 @@ class Carusel extends React .Component{
                 console.log(this.state.cCount, 'plus po else');
             })
         }
-        
-    }
-    styleSwitcher = ()=>{
-        this.setState({
-            fade: !this.state.fade,
-        },()=>{
-            console.log(this.state.fade);
-        })
     }
     setOn=(e)=>{
-        let tempVal = e.target.dataset.id;
-        tempVal =Number(tempVal);
+        let tempVaule = e.target.dataset.id;
+        tempVaule =Number(tempVaule);
        
         this.setState({
             fade: true,
-            cCount: tempVal,
+            cCount: tempVaule,
         },()=>{
             console.log(this.state.cCount);
             console.log(this.state.blockButton);
         })
+        this.timerIdSetON = setTimeout(()=>{
+            this.setState({fade: false,},()=>{console.log(this.state.fade);})
+        },750)
 
-        this.
+        clearTimeout(this.timerIdSetON);
 
-
-        // this.setState({fade: true,})
     }
     render(){
         const newTable = this.state.Testprops;
@@ -86,7 +79,6 @@ class Carusel extends React .Component{
                 <button data-id ='1' onClick ={this.setOn}>1</button>
                 <button data-id ='2' onClick ={this.setOn}>2</button>
                 <button data-id ='3' onClick ={this.setOn}>3</button>
-                <button onClick = {this.styleSwitcher}>TOGGLE</button>
                 <div className="carusel_wrapper">
                     {/* <ul className="listbox">
                         <li className ={`${this.state.cCount === 0? 'active':'' || this.state.cCount===1? 'disactive': ''} carusel_item`} style={{'backgroundColor':'red'}}></li>
