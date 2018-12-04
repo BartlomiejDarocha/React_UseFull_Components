@@ -8,7 +8,7 @@ class Carusel extends React .Component{
         super(props);
         this.state={
             cCount:0,
-            Testprops:['link1','link2','link3','link4','link....'],// to bedzie wrzucone jako props wyzej
+            Testprops:['link1','link2','link3','link4','link.5','link6','link....'],// to bedzie wrzucone jako props wyzej
             fade: false,
             blockControlArrows: false,
         }
@@ -91,7 +91,7 @@ class Carusel extends React .Component{
                     {/* {front of Carusel}   */}
                     <div className="caruselFront">
                         <div className='caruselLeftArrow'>
-                            <span onClick={this.prevArrow}>&#60;</span>
+                            <span onClick={!this.state.blockControlArrows? this.prevArrow: null}>&#60;</span>
                         </div>
                         <div className='caruselListControl'>
                             <ul>
@@ -99,7 +99,7 @@ class Carusel extends React .Component{
                             </ul>
                         </div>
                         <div className='caruselRightArrow'>
-                            <span onClick={this.nextArrow}>&#62;</span>
+                            <span onClick ={!this.state.blockControlArrows?this.nextArrow: null}>&#62;</span>
                         </div>
                     </div>
                 </div>
