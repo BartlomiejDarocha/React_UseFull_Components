@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div>
                     <h1>Hello Word</h1>
                     {/* <Slider/> */}
-                    <FadeSlider/>
+                    {/* <FadeSlider/> */}
                     <Carusel/>
                 </div>                
             )
