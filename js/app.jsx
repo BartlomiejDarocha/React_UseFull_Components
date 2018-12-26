@@ -8,6 +8,7 @@ import Style from '../sass/style.scss'
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    let tableCarusel = ['link1', 'link2', 'link3', 'link4', 'link.5', 'link6', 'link....'];
     class App extends React.Component {
         render() {
             return (
@@ -15,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h1>Hello Word</h1>
                     {/* <Slider/> */}
                     {/* <FadeSlider/> */}
-                    <Carusel/>
+                    <Carusel
+                    testprops = {tableCarusel}
+                    intervalTime = {4200}
+                    />
                 </div>                
             )
         }
