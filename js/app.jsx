@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from './Slider.jsx';
 import Carusel from './Carusel.jsx';
+import TaskList from './TaskList.jsx';
 import FadeSlider from './FadeSlider.jsx'
 import data from './data.js'
 import Style from '../sass/style.scss'
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     testprops = {tableCarusel}
                     intervalTime = {4200}
                     />
+                    <TaskList/>
                 </div>                
             )
         }
