@@ -10,8 +10,8 @@ class Carusel extends React.Component {
             cCount: 0,
             fade: false,
             blockControlArrows: false,
-            intervalBlock: false,
         }
+        this.blockInterval = false;
     }
     prevArrow = () => {
         if(!this.state.blockControlArrows){
@@ -42,33 +42,33 @@ class Carusel extends React.Component {
     setOn = (e) => {
         let tempVaule = e.target.dataset.id;
         tempVaule = Number(tempVaule);
-
         this.setState({ fade: true, cCount: tempVaule, })
-
         this.timerIdSetON = setTimeout(() => {
             this.setState({ fade: false, })
-        }, 750)
+        }, 3000)
+    }
+    caruselStart = ()=>{
+        this.caruselInterval = setInterval(()=>{
+            if(this.state.cCount >= this.props.testprops.length - 1 && !this.blockInterval){
+                this.setState({cCount: 0, blockControlArrows: true });
+            } else if(!this.blockInterval){
+                this.setState({cCount: this.state.cCount + 1, blockControlArrows: true});
+            }
+            this.arrowTimeout = setTimeout(() => {
+                this.setState({ blockControlArrows: false, })
+            }, 1000);
+        },this.props.intervalTime);        
     }
     stopCarausel = () =>{
-        this.setState({intervalBlock: true})
+        this.blockInterval = true;
     }
     startCarausel = () =>{
-        this.setState({intervalBlock: false})
+        this.blockInterval = false;
     }    
-    componentWillMount(){
-        let caruselInterval = setInterval(()=>{
-            if(!this.state.intervalBlock){
-                if(this.state.cCount >= this.props.testprops.length - 1){
-                    this.setState({cCount: 0, blockControlArrows: true });
-                } else {
-                    this.setState({cCount: this.state.cCount + 1, blockControlArrows: true});
-                }
-                this.arrowTimeout = setTimeout(() => {
-                    this.setState({ blockControlArrows: false, })
-                }, 1000)
-            }
-        },this.props.intervalTime);
+    componentDidMount(){
+       this.caruselStart();
     }
+    
     componentWillUnmount() {
         clearTimeout(this.timerIdSetON);
         clearTimeout(this.arrowTimeout);
@@ -84,15 +84,13 @@ class Carusel extends React.Component {
         if (this.state.fade) {
             caruselContent = newTable.map((item, index) => { // pojawianie sie przez klase fade
                 return <li key = {index}
-                    style={{
-                        'display': this.state.cCount === index ? 'block' : 'none'
-                    }}
-                    className={`.carusel_item_fade fade`}
+                    style={{'display': this.state.cCount === index ? 'block' : 'none', 'backgroundColor': item}}
+                    className={`carusel_item_fade fade`}
                 >{item}</li>
             })
         } else {
             caruselContent = newTable.map((item, index) => { // pojawianie sie przez karuzele
-                return <li key = {index} className={`carusel_item ${(this.state.cCount === index ? 'active' : '' || index === newTable.length - 1 ? (this.state.cCount === 0 ? 'disactive' : '') : (this.state.cCount === index + 1 ? 'disactive' : ''))}`}>
+                return <li key = {index} style={{'backgroundColor': item}} className={`carusel_item ${(this.state.cCount === index ? 'active' : '' || index === newTable.length - 1 ? (this.state.cCount === 0 ? 'disactive' : '') : (this.state.cCount === index + 1 ? 'disactive' : ''))}`}>
                     {item}</li>
             });
         }

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import data from './data.js'
-import Style from '../sass/Carusel.scss'
+import Style from '../sass/taskList.scss'
 class TaskList extends React.Component{
     constructor(props){
         super(props);
@@ -9,11 +8,13 @@ class TaskList extends React.Component{
             inputText: '',
             h1Text: 'it will be change',
             list: [],
+            number: 0,
         }
+        this.a = null;
     }
     lengthInputTest =()=>{
-        if(this.state.inputText.length <= 0){
-            this.setState({h1Text:'it will be change',})
+        if(this.state.inputText.length === 0){
+            this.setState({h1Text:'it will be change'})
         }
     }
     handleText =(e)=> {
@@ -22,19 +23,48 @@ class TaskList extends React.Component{
             inputText: e.target.value,
         });
     }
-    handleAddButton =(event)=>{
+    handleAddButton = (event) =>{
         event.preventDefault();
-        let tempArry = this.state.list.slice();
-        tempArry.push(this.state.inputText);
-        this.setState({list: tempArry, inputText:''})
+        if(this.state.inputText !== ''){
+            let tempArry = this.state.list.slice();
+            tempArry.push(this.state.inputText);
+            this.setState({list: tempArry, inputText:''},() => {
+                this.lengthInputTest();
+            });    
+        }else{
+            alert("nie moze być puste");
+        }
+        
     }
-    componentDidUpdate(){
-        this.lengthInputTest();   
+    deleteHandleButton = (event) => {
+        const id =  event.target.dataset.id;
+        const updataList = this.state.list.slice();
+        updataList.splice(id, 1);
+        this.setState({list: updataList});
     }
+    handleNun = (e) =>{
+        if(e.target.value >= 100){
+            e.target.value = 100;
+        }
+        let tempA = e.target.value;
+        this.setState({number: tempA});
+    }
+    /////test
+    handleNunTwo = (event) =>{
+        if(event.target.value >= 100){
+            event.target.value = 100;     
+        }
+        this.a = event.target.value; 
+    }
+    buttonHandlerTwo = (e) =>{
+        e.preventDefault();
+        this.setState({number: this.a,})
+    }
+
     render(){
         let listDeploy = [];
-        listDeploy = this.state.list.map((listElement)=>{
-            return <li>{listElement}<button>Usun</button><input type="checkbox"></input></li>
+        listDeploy = this.state.list.map((listElement, index)=>{
+            return <li key={index}>{listElement}<button data-id ={"id " + index} onClick ={this.deleteHandleButton}>Usun</button></li>
         })
         return (
             <div>
@@ -46,6 +76,15 @@ class TaskList extends React.Component{
                 <ul>
                     {listDeploy}
                 </ul>
+                <form>
+                    <input type="number" onChange={this.handleNun} max="100" min="0"/>
+                    <input type="number" onChange={this.handleNunTwo} min="0" max="100" /><button onClick={this.buttonHandlerTwo}>Zmien</button><label>Wprowadz i zakceptuj</label>
+                    <div className="changingBoxContainer">
+                        <div className="precentBox" style ={{'width': this.state.number + "%"}}>
+                            <span>{this.state.number}%</span>
+                        </div>
+                    </div>
+                </form>
             </div>
         )
     }

@@ -9,7 +9,7 @@ import Style from '../sass/style.scss'
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    let tableCarusel = ['link1', 'link2', 'link3', 'link4', 'link.5', 'link6', 'link....'];
+    let tableCarusel = ['red', 'blue', 'silver', 'gold', 'green', 'violet', 'pink'];
     class App extends React.Component {
         render() {
             return (
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     {/* <FadeSlider/> */}
                     <Carusel
                     testprops = {tableCarusel}
-                    intervalTime = {4200}
+                    intervalTime = {5000}
                     />
                     <TaskList/>
                 </div>                

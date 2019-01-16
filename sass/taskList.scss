@@ -1,0 +1,16 @@
+.changingBoxContainer{
+    display: block;
+    height: 30px;
+    width: 200px;
+    border: 1px solid black;
+    .precentBox{
+        background: lightseagreen;
+        height: 100%;
+        width: 0%;
+        span{
+            font-size: 20px;
+        }
+        
+    }
+    
+}
