@@ -8,6 +8,7 @@ class TaskList extends React.Component{
             inputText: '',
             h1Text: 'it will be change',
             list: [],
+            listDone: [],
             number: 0,
         }
         this.a = null;
@@ -56,15 +57,32 @@ class TaskList extends React.Component{
         }
         this.a = event.target.value; 
     }
-    buttonHandlerTwo = (e) =>{
+    buttonHandlerTwo = (e) => {
         e.preventDefault();
-        this.setState({number: this.a,})
+        this.setState({number: this.a})
+    }
+    ///test
+    handleCheckbox = (event) => {
+        console.log(event.target.dataset.boxId);
+        const boxId = event.target.dataset.boxId;
+        const tempElementValue = event.target.dataset.value;
+        let tempList = this.state.list.slice();
+        let templistDone = this.state.listDone.slice();
+        templistDone.push(tempElementValue);
+        
+        tempList.splice(boxId, 1);
+        this.setState({list:tempList, listDone: templistDone});
+
     }
 
     render(){
         let listDeploy = [];
         listDeploy = this.state.list.map((listElement, index)=>{
-            return <li key={index}>{listElement}<button data-id ={"id " + index} onClick ={this.deleteHandleButton}>Usun</button></li>
+            return <li key={index}>{listElement}<button data-id = {"id " + index} onClick ={this.deleteHandleButton}>Usun</button><input data-boxId = {"Box "+ index} data-value ={listElement} type="checkbox" onChange ={this.handleCheckbox}/></li>
+        })
+        let listDoneDeploy =[]; 
+        listDoneDeploy = this.state.listDone.map((element, index) => {
+            return <li key = {index}>{element}</li>
         })
         return (
             <div>
@@ -74,7 +92,12 @@ class TaskList extends React.Component{
                     <button onClick={this.handleAddButton}>Dodaj</button>
                 </form>
                 <ul>
+                    <li>UnDone</li>
                     {listDeploy}
+                </ul>
+                <ul>
+                    <li>Done</li>
+                    {listDoneDeploy}
                 </ul>
                 <form>
                     <input type="number" onChange={this.handleNun} max="100" min="0"/>
